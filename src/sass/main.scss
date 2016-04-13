@@ -1,5 +1,16 @@
-/* CSS Entry Point */
+@import 'normalize-css/normalize';
 
-// Turn on freq used libraries
-// @import 'normalize-css/normalize';
-// @import 'font-awesome/scss/font-awesome';
+.paper-flex-wrapper {
+	display:flex;
+	justify-content:center;
+}
+
+.style {
+  	height: 250px;
+ 	width: 450px;
+ 	overflow:auto;
+  	margin: 20;
+  	text-align: center;
+  	display: inline-block;
+	margin-top:150px;
+}

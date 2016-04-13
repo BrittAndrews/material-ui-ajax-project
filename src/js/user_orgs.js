@@ -3,7 +3,7 @@ import { Router, Route, hashHistory, Link } from 'react-router';
 import { render } from 'react-DOM';
 import { ajax } from 'jquery';
 import Paper from 'material-ui/lib/paper';
-import List from 'material-ui/lib/list';
+import List from 'material-ui/lib/lists/list';
 import Avatar from 'material-ui/lib/avatar';
 import ListItem from 'material-ui/lib/lists/list-item';
 import DeviceHub from 'material-ui/lib/svg-icons/hardware/device-hub';
@@ -32,6 +32,7 @@ export default class UserOrgs extends Component {
 	getOrg(org) {
 		return (
 			<ListItem
+				 key={org.id}
         		 primaryText={`${org.login}`}
         		 leftAvatar={<Avatar src={`${org.avatar_url}`} />}
         		 rightIcon={<DeviceHub />}
@@ -47,14 +48,15 @@ export default class UserOrgs extends Component {
 		
 
 		return(
+				<div className="paper-flex-wrapper">
+				<Paper className="style" zDepth={5}>
+			    <List Subheader="GitHub Orgs">
 
-
-			    <List subheader="GitHub Orgs">
-
-      			{ orgs.map(getOrg) }
+      			{ orgs.map(::this.getOrg) }
 
    				</List>
-
+   				</Paper>
+   				</div>
 
 			);
 	}
